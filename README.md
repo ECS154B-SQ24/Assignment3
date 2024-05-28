@@ -477,33 +477,33 @@ end:
 
 (v) fibonacci  (25 points)
 
-add	a5,zero,t1
-sw	a5, 0x400(zero)                
-sw	zero, 0x500(zero)             
-addi	a5,zero,1
-sw	a5,0x600(zero)                
-sw	zero, 0x700(zero)             
-jal	label2
+  add	a5,zero,t1
+  sw	a5, 0x400(zero)                
+  sw	zero, 0x500(zero)             
+  addi	a5,zero,1
+  sw	a5,0x600(zero)                
+  sw	zero, 0x700(zero)             
+  jal	label2
 
-label1:
-lw	a4,0x500(zero)           
-lw	a5,0x600(zero)           
-add	a5,a4,a5
-sw	a5,0x750(zero)         
-lw      t0,0x600(zero)
-lw	a5,0x600(zero)         
-sw	a5,0x500(zero)         
-lw	a5,0x750(zero)         
-sw	a5,0x600(zero)         
-lw	a5,0x700(zero)         
-addi	a5,a5,1
-sw	a5,0x700(zero)         
+  label1:
+  lw	a4,0x500(zero)           
+  lw	a5,0x600(zero)           
+  add	a5,a4,a5
+  sw	a5,0x750(zero)         
+  lw      t0,0x600(zero)
+  lw	a5,0x600(zero)         
+  sw	a5,0x500(zero)         
+  lw	a5,0x750(zero)         
+  sw	a5,0x600(zero)         
+  lw	a5,0x700(zero)         
+  addi	a5,a5,1
+  sw	a5,0x700(zero)         
 
-label2:
-lw	a4, 0x700(zero) 
-lw	a5, 0x400(zero) 
-blt	a4,a5,label1
-add    t0,t0,zero
+  label2:
+  lw	a4, 0x700(zero) 
+  lw	a5, 0x400(zero) 
+  blt	a4,a5,label1
+  add    t0,t0,zero
 
 
 # Grading
