@@ -480,7 +480,9 @@ end:
 ```
 
 (v) fibonacci  (25 points)
+
 For this assembly code, consider the branch is taken in label2 and draw the diagram for only one iteration of label1 and label2.
+
 
 ```
   add	a5,zero,t1
