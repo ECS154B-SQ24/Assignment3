@@ -477,7 +477,7 @@ end:
 
 (v) fibonacci  (25 points)
 
-```assembly
+```
   add	a5,zero,t1
   sw	a5, 0x400(zero)                
   sw	zero, 0x500(zero)             
@@ -503,7 +503,7 @@ label2:
   lw	a5, 0x400(zero) 
   blt	a4,a5,label1
   add    t0,t0,zero
-
+```
 
 # Grading
 
