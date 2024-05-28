@@ -550,7 +550,7 @@ Either the test passes or it fails.
 
 ## Pipelined diagrams
 
-You will upload the diagrams for the 5 codes given above to Gradescope.
+You will upload the pipelined diagrams for the 5 codes given above to Gradescope in a single PDF file.
 
 ## Academic misconduct reminder
 
