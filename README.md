@@ -484,7 +484,6 @@ addi	a5,zero,1
 sw	a5,0x600(zero)                
 sw	zero, 0x700(zero)             
 jal	label2
-
 label1:
 lw	a4,0x500(zero)           
 lw	a5,0x600(zero)           
@@ -498,7 +497,6 @@ sw	a5,0x600(zero)
 lw	a5,0x700(zero)         
 addi	a5,a5,1
 sw	a5,0x700(zero)
-
 label2:
 lw	a4, 0x700(zero) 
 lw	a5, 0x400(zero) 
