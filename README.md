@@ -437,18 +437,90 @@ If you run `print inst` at the prompt in the singlestep program it will print th
 - [Multiplier](https://gist.github.com/powerjg/fbfc2c993e53ba058e27a10703362f27), which multiplies two numbers initially in registers `t0` and `t1`. It stores the result of multiplication in the data memory at address 0x500 (and it can be found in `t0`).
 - [Divider](https://gist.github.com/powerjg/4b836d4c0b6adb7dd4f450b1aadda279), which divides the value in `t0` by the value in `t1` and the results can be found in `t2` and stored in data memory at address 0x450.
 
+# Part V: Pipeline Diagrams
+
+In this part, your task is to draw the pipeline diagrams for the below test cases. You need to clearly indicate if there is any data forwarding by showing arrows pointing from the source to the destination of the forwarding. Also, you should identify any stalls due to hazards by inserting bubbles.
+As demonstrated in the pipelined diagram, the CPU has five stages: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory Access (MEM), and Write Back (WB). You are required to analyze the following codes cycle by cycle.
+
+
+(i) dual_addfwd3 (5 points)
+
+    add x1, x1, x1 # (reg[1] = reg[1] + reg[1])
+    add x1, x1, x1
+    add x1, x1, x1 
+    add x1, x1, x1
+    add x1, x1, x1
+    add x1, x1, x1
+
+(ii) ldfwd    (5 points)
+
+    ld  t0, 0x400(zero) # (reg[5] = mem[0x100])
+    add a0, a0, t0      # (reg[10] = reg[10] + reg[5])
+
+(iii) swfwd1  (5 points)
+
+    add t0, t2, zero # set t0 to t2
+    sw t0, 0x400(zero)
+    lw t1, 0x400(zero)
+
+(iv) beqfwd1  (10 points)
+
+    add t2, t4, zero # set t2 and t3 to equal
+    add t3, t4, zero
+    beq t2, t3, label   # if reg[7] == reg[28], go to label.
+    add t0, zero, zero  # else reg[5] = 0 + 0
+    beq zero, zero, end # no matter what, go to end
+label:
+    add t0, t0, t1     # reg[5] = reg[5] + reg[6]
+end:
+    nop
+
+(v) fibonacci  (25 points)
+
+add	a5,zero,t1
+sw	a5, 0x400(zero)                
+sw	zero, 0x500(zero)             
+addi	a5,zero,1
+sw	a5,0x600(zero)                
+sw	zero, 0x700(zero)             
+jal	label2
+
+label1:
+lw	a4,0x500(zero)           
+lw	a5,0x600(zero)           
+add	a5,a4,a5
+sw	a5,0x750(zero)         
+lw      t0,0x600(zero)
+lw	a5,0x600(zero)         
+sw	a5,0x500(zero)         
+lw	a5,0x750(zero)         
+sw	a5,0x600(zero)         
+lw	a5,0x700(zero)         
+addi	a5,a5,1
+sw	a5,0x700(zero)
+
+label2:
+lw	a4, 0x700(zero) 
+lw	a5, 0x400(zero) 
+blt	a4,a5,label1
+add    t0,t0,zero
+nop
+nop
+
+
 # Grading
 
 Grading will be done automatically on Gradescope.
 See [the Submission section](#Submission) for more information on how to submit to Gradescope.
 
-| Name     | Percentage |
+| Name     | Points     |
 |----------|------------|
-| Part I   | 30%        |
-| Part II  | 15%        |
-| Part III | 15%        |
-| Part IV  | 20%        |
-| Oral     | 20%        |
+| Part I   | 40         |
+| Part II  | 20         |
+| Part III | 20         |
+| Part IV  | 20         |
+| Part V   | 50         |
+| Oral     | 50         |
 
 # Submission
 
@@ -471,6 +543,10 @@ If all of your tests are passing locally, they should also pass on Gradescope un
 Note: There is no partial credit on Gradescope.
 Each part is all or nothing.
 Either the test passes or it fails.
+
+## Pipelined diagrams
+
+You will upload the diagrams for the 5 codes given above to Gradescope.
 
 ## Academic misconduct reminder
 
