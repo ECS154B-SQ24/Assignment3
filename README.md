@@ -465,6 +465,7 @@ As demonstrated in the pipelined diagram, the CPU has five stages: Instruction F
 
 (iv) beqfwd1  (10 points)
 
+```
     add t2, t4, zero # set t2 and t3 to equal
     add t3, t4, zero
     beq t2, t3, label   # if reg[7] == reg[28], go to label.
@@ -474,6 +475,7 @@ label:
     add t0, t0, t1     # reg[5] = reg[5] + reg[6]
 end:
     nop
+```
 
 (v) fibonacci  (25 points)
 
