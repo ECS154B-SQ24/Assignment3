@@ -440,7 +440,12 @@ If you run `print inst` at the prompt in the singlestep program it will print th
 # Part V: Pipeline Diagrams
 
 In this part, your task is to draw the pipeline diagrams for the below test cases. You need to clearly indicate if there is any data forwarding by showing arrows pointing from the source to the destination of the forwarding. Also, you should identify any stalls due to hazards by inserting bubbles.
+
+
 As demonstrated in the pipelined diagram, the CPU has five stages: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory Access (MEM), and Write Back (WB). You are required to analyze the following codes cycle by cycle.
+
+![Pipeline Diagram](images/Users/sivasaikumarpilla/Downloads/154B_example.jpeg)
+
 
 
 (i) dual_addfwd3 (5 points)
@@ -478,6 +483,7 @@ end:
 ```
 
 (v) fibonacci  (25 points)
+For this assembly code, consider the branch is taken in label2 and draw the diagram for only one iteration of label1 and label2.
 
 ```
   add	a5,zero,t1
