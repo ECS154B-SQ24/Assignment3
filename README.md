@@ -444,9 +444,6 @@ In this part, your task is to draw the pipeline diagrams for the below test case
 
 As demonstrated in the pipelined diagram, the CPU has five stages: Instruction Fetch (IF), Instruction Decode (ID), Execute (EX), Memory Access (MEM), and Write Back (WB). You are required to analyze the following codes cycle by cycle.
 
-![Pipeline Diagram](images/Users/sivasaikumarpilla/Downloads/154B_example.jpeg)
-
-
 
 (i) dual_addfwd3 (5 points)
 
