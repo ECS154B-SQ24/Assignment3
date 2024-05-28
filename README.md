@@ -477,6 +477,7 @@ end:
 
 (v) fibonacci  (25 points)
 
+```assembly
   add	a5,zero,t1
   sw	a5, 0x400(zero)                
   sw	zero, 0x500(zero)             
